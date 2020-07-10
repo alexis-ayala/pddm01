@@ -1,5 +1,7 @@
 package com.anushka.roomdemo.viewmodel
 
+import android.app.Activity
+import android.content.Intent
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
@@ -11,10 +13,13 @@ import com.anushka.roomdemo.model.Categoria
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.CategoriaRepository
 import com.anushka.roomdemo.repository.UsuarioRepository
+import com.anushka.roomdemo.view.CategoriaActivity
+import com.anushka.roomdemo.view.McategoriaActivity
 import kotlinx.coroutines.launch
 
 
 class CategoriaViewModel(private val repository: CategoriaRepository) : ViewModel(), Observable {
+    lateinit var activity : Activity
 
     val categorias = repository.categorias
     private lateinit var categoriaSeleccionada: Categoria
@@ -38,6 +43,8 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
         categoriaSeleccionada = categoria
         statusMessage.value =
             Event("Categoria: id = ${categoria.id}, nombre = ${categoria.name} y usuario = ${categoria.idUsername}")
+        val myIntent = Intent(activity, McategoriaActivity::class.java)
+        activity.startActivity(myIntent)
     }
 
     fun createCategoria(){
@@ -50,7 +57,7 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
         }
     }
     fun insert(cat: String) = viewModelScope.launch {
-        val cate : Categoria = Categoria(0,cat,1)
+        val cate : Categoria = Categoria(0,cat,repository.idUsuario)
 
         val newRowId = repository.insert(cate)
         if (newRowId > -1) {

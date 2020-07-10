@@ -11,54 +11,62 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.anushka.roomdemo.recycle.CategoriaRecycleViewAdapter
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ActivityCategoriaBinding
+import com.anushka.roomdemo.databinding.ActivityMcategoriaBinding
 import com.anushka.roomdemo.model.Categoria
 import com.anushka.roomdemo.viewmodel.UsuarioViewModel
 import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
 import com.anushka.roomdemo.model.CompraDatabase
+import com.anushka.roomdemo.model.Producto
+import com.anushka.roomdemo.recycle.ProductoRecycleViewAdapter
 import com.anushka.roomdemo.repository.CategoriaRepository
+import com.anushka.roomdemo.repository.ProductoRepository
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.viewmodel.CategoriaViewModel
+import com.anushka.roomdemo.viewmodel.ProductoViewModel
 import com.anushka.roomdemo.viewmodelfactory.CategoriaViewModelFactory
+import com.anushka.roomdemo.viewmodelfactory.ProductoViewModelFactory
 
-class CategoriaActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityCategoriaBinding
-    private lateinit var categoriaViewModel: CategoriaViewModel
-    private lateinit var adapter: CategoriaRecycleViewAdapter
+class McategoriaActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMcategoriaBinding
+    private lateinit var productoViewModel: ProductoViewModel
+    private lateinit var adapter: ProductoRecycleViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
-            R.layout.activity_categoria
+            R.layout.activity_mcategoria
         )
 
         var idUsuario : Int = 1
+        var idCategoria : Int = 1
 
-        val dao = CompraDatabase.getInstance(application).categoriaDao
-        val repository = CategoriaRepository(dao,idUsuario)
+        val daoProducto = CompraDatabase.getInstance(application).productoDao
+        val daoCategoria = CompraDatabase.getInstance(application).categoriaDao
+        val repository = ProductoRepository(daoProducto,daoCategoria,idUsuario,idCategoria)
         val factory =
-            CategoriaViewModelFactory(
+            ProductoViewModelFactory(
                 repository
             )
-        categoriaViewModel = ViewModelProvider(this,factory).get(CategoriaViewModel::class.java)
-        categoriaViewModel.activity = this
-        binding.myViewModel = categoriaViewModel
+        productoViewModel = ViewModelProvider(this,factory).get(ProductoViewModel::class.java)
+        productoViewModel.activity = this
+        binding.myViewModel = productoViewModel
         binding.lifecycleOwner = this
 
         initRecyclerView()
 
-        categoriaViewModel.message.observe(this, Observer {
+        productoViewModel.message.observe(this, Observer {
             it.getContentIfNotHandled()?.let {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }
         })
     }
     private fun initRecyclerView(){
-        binding.categoriaRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = CategoriaRecycleViewAdapter {
-                selectedItem: Categoria ->
-            categoriaViewModel.initSeleccion(selectedItem)
+        binding.productoRecyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = ProductoRecycleViewAdapter {
+                selectedItem: Producto ->
+            productoViewModel.initSeleccion(selectedItem)
         }
-        binding.categoriaRecyclerView.adapter = adapter
-        categoriaViewModel.categorias.observe(this, Observer {
+        binding.productoRecyclerView.adapter = adapter
+        productoViewModel.productos.observe(this, Observer {
             Log.i("MYTAG",it.toString())
             adapter.setList(it)
             adapter.notifyDataSetChanged()

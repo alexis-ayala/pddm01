@@ -5,13 +5,16 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.anushka.roomdemo.dao.CategoriaDao
+import com.anushka.roomdemo.dao.ProductoDao
 import com.anushka.roomdemo.dao.UsuarioDAO
+import com.anushka.roomdemo.repository.UsuarioRepository
 
-@Database(entities = [Usuario::class,Categoria::class],version = 1)
+@Database(entities = [Usuario::class,Categoria::class,Producto::class],version = 1)
 abstract class CompraDatabase : RoomDatabase() {
 
     abstract val usuarioDAO : UsuarioDAO
     abstract val categoriaDao : CategoriaDao
+    abstract val productoDao: ProductoDao
 
     companion object{
       @Volatile
@@ -23,7 +26,7 @@ abstract class CompraDatabase : RoomDatabase() {
                           instance = Room.databaseBuilder(
                                  context.applicationContext,
                                  CompraDatabase::class.java,
-                                 "db_compra_3"
+                                 "db_compra_4"
                           ).build()
                       }
                   return instance

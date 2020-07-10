@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ListItemBinding
 import com.anushka.roomdemo.model.Usuario
+import kotlinx.android.synthetic.main.list_categoria.view.*
 
 class MyRecyclerViewAdapter(private val clickListener:(Usuario)->Unit)
     : RecyclerView.Adapter<MyViewHolder>()

@@ -26,6 +26,9 @@ interface ProductoDao {
     @Query("DELETE FROM table_compra_producto where idUsername=:idUsuario")
     suspend fun deleteAllUsuario(idUsuario: Int) : Int
 
+    @Query("DELETE FROM table_compra_producto where idCategoria=:idCategoria")
+    suspend fun deleteCatProducto(idCategoria: Int) : Int
+
     @Query("SELECT * FROM table_compra_producto")
     fun getAllCategoria():LiveData<List<Producto>>
 

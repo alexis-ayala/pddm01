@@ -23,8 +23,8 @@ import kotlinx.coroutines.launch
 
 class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(), Observable {
     lateinit var activity : Activity
-    var idUsuario : Int = 1
-    var idCategoria : Int = 1
+    var idUsuario : Int = repository.idUsuario
+    var idCategoria : Int = repository.idCategoria
 
     val productos = repository.productos
     lateinit var categoria : Categoria
@@ -83,6 +83,9 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
             val nomCat = inputNameCategoria.value!!
             var producto = Producto(0,nombre,precio,observacion,idCategoria,nomCat,idUsuario)
             insert(producto)
+            inputName.value=""
+            inputObservacion.value=""
+            inputPrecio.value=""
         }
     }
     fun updateCategoria()= viewModelScope.launch {
@@ -90,25 +93,25 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
             statusMessage.value =
                 Event("Ingresar nombre categoría")
         }else{
-            /*categoria?.name = inputNameCategoria.value!!
+            categoria.name = inputNameCategoria.value!!
             var newUpdate = repository.updateCategoria(categoria!!)
             if (newUpdate > -1) {
                 statusMessage.value =
                     Event("Se ha modificado categoría.")
             } else {
                 statusMessage.value = Event("Error desconocido")
-            }*/
-            statusMessage.value = Event("Llega update cate")
+            }
         }
     }
     fun deleteCate() = viewModelScope.launch {
-        /*val newRowId = repository.deleteCategoria(categoria!!)
+        val newRowId = repository.deleteCategoria(categoria!!)
         if (newRowId > -1) {
             statusMessage.value =
                 Event("Se ha borrado categoría.")
+            repository.deleteCatProducto() //borra los productos de la categoría
         } else {
             statusMessage.value = Event("Error desconocido")
-        }*/
+        }
         statusMessage.value = Event("Llega deletecat")
     }
     fun insertCate(categoria: Categoria) = viewModelScope.launch {

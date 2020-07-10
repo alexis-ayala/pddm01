@@ -15,6 +15,7 @@ import com.anushka.roomdemo.model.Categoria
 import com.anushka.roomdemo.viewmodel.UsuarioViewModel
 import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
 import com.anushka.roomdemo.model.CompraDatabase
+import com.anushka.roomdemo.model.DataShared
 import com.anushka.roomdemo.repository.CategoriaRepository
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.viewmodel.CategoriaViewModel
@@ -30,7 +31,9 @@ class CategoriaActivity : AppCompatActivity() {
             R.layout.activity_categoria
         )
 
-        var idUsuario : Int = 1
+        val valActivity = DataShared(this.intent.extras!!)
+
+        var idUsuario : Int = valActivity.id_usuario
 
         val dao = CompraDatabase.getInstance(application).categoriaDao
         val repository = CategoriaRepository(dao,idUsuario)

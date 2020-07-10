@@ -44,6 +44,8 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
         statusMessage.value =
             Event("Categoria: id = ${categoria.id}, nombre = ${categoria.name} y usuario = ${categoria.idUsername}")
         val myIntent = Intent(activity, McategoriaActivity::class.java)
+        myIntent.putExtra("id_usuario",repository.idUsuario)
+        myIntent.putExtra("id_categoria",categoria.id)
         activity.startActivity(myIntent)
     }
 

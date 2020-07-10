@@ -27,6 +27,9 @@ class ProductoRepository(private val dao : ProductoDao, private val daoCategoria
     suspend fun deleteAll() : Int{
         return dao.deleteAllUsuario(idUsuario)
     }
+    suspend fun deleteCatProducto() : Int{
+        return dao.deleteCatProducto(idCategoria)
+    }
     suspend fun deleteCategoria(categoria: Categoria) : Int{
         return daoCategoria.deleteCategoria(categoria)
     }

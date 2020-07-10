@@ -15,6 +15,18 @@
         tools:context=".view.LoginActivity" >
 
         <EditText
+            android:id="@+id/name_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_marginBottom="5dp"
+            android:ems="10"
+            android:text="@={myViewModel.inputName}"
+            android:hint="Nombre (para registrarse)"
+            android:inputType="textPersonName"
+            android:textStyle="bold" />
+
+        <EditText
             android:id="@+id/username_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -50,6 +62,7 @@
                 android:text="@={myViewModel.createLoginButtonText}"
                 android:onClick="@{()->myViewModel.registerUsuario()}"
                 android:textSize="18sp"
+                android:hint="Registrar"
                 android:textStyle="bold" />
 
             <Button
@@ -60,6 +73,7 @@
                 android:text="@={myViewModel.loginButtonText}"
                 android:onClick="@{()->myViewModel.loginUsuario()}"
                 android:textSize="18sp"
+                android:hint="Acceder"
                 android:textStyle="bold" />
 
 

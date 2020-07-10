@@ -26,4 +26,7 @@ class UsuarioRepository(private val dao : UsuarioDAO) {
     suspend fun getUsuario(username: String, password: String): Usuario? {
         return dao.getUsuario(username,password)
     }
+    suspend fun findUsuario(username: String): Usuario? {
+        return dao.findUsuario(username)
+    }
 }

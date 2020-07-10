@@ -23,6 +23,9 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
     lateinit var activity: Activity
 
     @Bindable
+    val inputName = MutableLiveData<String>()
+
+    @Bindable
     val inputUsername = MutableLiveData<String>()
 
     @Bindable
@@ -45,7 +48,6 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
     }
 
     fun loginUsuario() {
-
         if (inputUsername.value == null) {
             statusMessage.value = Event("Favor ingresar usuario")
         } else if (inputPassword.value == null) {
@@ -62,16 +64,50 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
             inputUsername.value = null
             inputPassword.value = null
             statusMessage.value = Event("Si existe.")
-            val myIntent = Intent(activity, CategoriaActivity::class.java)
-            activity.startActivity(myIntent)
+            loguear(login)
         }else{
             statusMessage.value = Event("Credenciales incorrectas.")
         }
     }
-    fun registerUsuario(){
-
+    fun loguear(usuario: Usuario){
+        val myIntent = Intent(activity, CategoriaActivity::class.java)
+        myIntent.putExtra("id_usuario",usuario.id)
+        myIntent.putExtra("username", usuario.username)
+        myIntent.putExtra("name_usuario",usuario.name)
+        activity.startActivity(myIntent)
     }
-
+    fun registerUsuario(){
+        if(inputName.value==null){
+            statusMessage.value = Event("Ingresar nombre.")
+        }else if(inputUsername.value==null){
+            statusMessage.value = Event("Ingresar usuario")
+        }else if(inputPassword.value==null){
+            statusMessage.value = Event("Ingresar contraseña")
+        }else{
+            val username = inputUsername.value!!
+            val password = inputPassword.value!!
+            val name = inputName.value!!
+            val usuario = Usuario(0,name,username,password)
+            loginCreate(usuario)
+        }
+    }
+    fun loginCreate(usuario: Usuario) = viewModelScope.launch {
+        val user = repository.findUsuario(usuario.username)
+        if(user==null){
+            val create = repository.insert(usuario)
+            if(create>-1){
+                inputUsername.value = null
+                inputPassword.value = null
+                statusMessage.value = Event("Si existe.")
+                usuario.id = create.toInt()
+                loguear(usuario)
+            }else{
+                statusMessage.value = Event("Credenciales incorrectas.")
+            }
+        }else{
+            statusMessage.value = Event("Error: usuario ya existe")
+        }
+    }
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 
     }

@@ -13,39 +13,11 @@ import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.viewmodel.LoginViewModel
 import com.anushka.roomdemo.viewmodelfactory.LoginViewModelFactory
 
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
 
-    /*val positiveButtonClick = { dialog: DialogInterface, which: Int ->
-        Toast.makeText(applicationContext,
-            android.R.string.yes, Toast.LENGTH_SHORT).show()
-    }
-    val negativeButtonClick = { dialog: DialogInterface, which: Int ->
-        Toast.makeText(applicationContext,
-            android.R.string.no, Toast.LENGTH_SHORT).show()
-    }
-    val neutralButtonClick = { dialog: DialogInterface, which: Int ->
-        Toast.makeText(applicationContext,
-            "Maybe", Toast.LENGTH_SHORT).show()
-    }
-    fun basicAlert(){
-
-        val builder = AlertDialog.Builder(this)
-
-        with(builder)
-        {
-            setTitle("Androidly Alert")
-            setMessage("We have a message")
-            setPositiveButton("OK", DialogInterface.OnClickListener(function = positiveButtonClick))
-            setNegativeButton(android.R.string.no, negativeButtonClick)
-            setNeutralButton("Maybe", neutralButtonClick)
-            show()
-        }
-
-
-    }
-*/
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
@@ -68,16 +40,9 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }
         })
-/*        buttonSignUp.setOnClickListener { val intent = Intent(this, SignUpActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-        }
-            startActivity(intent) }*/
-    }
-        //iniDialog()
-    }
-    /*
-    fun iniDialog(){
-        basicAlert()
 
-    }*/
+
+    }
+
+    }
 

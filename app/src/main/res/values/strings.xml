@@ -2,6 +2,7 @@
     <string name="app_name">RoomDemo</string>
     <string name="submit">+</string>
     <!-- Login -->
+    <string name="login_name">Full name</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
     <string name="login_sign_in">Sign In</string>
@@ -9,16 +10,6 @@
     <string name="login_confirm_password">Confirm Password</string>
     <string name="login_sign_up">Sign Up</string>
     <string name="login_go_login">Go back to Login</string>
-    <!-- Menu -->
-    <string name="list_foods">Foods</string>
-    <string name="list_drinks">Drinks</string>
-    <string name="list_medicaments">Medicaments</string>
-    <string name="list_fastFood">Fast Food</string>
-
-    <string name="title_nav_header">Menu title</string>
-    <string name="category_fragment_title">Category</string>
-    <string name="login_forgot_password">Forgot Password?</string>
-    <string name="login_reset_password">Reset my password</string>
 
 
     <string name="cancel">Cancel</string>

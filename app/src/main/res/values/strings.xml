@@ -1,4 +1,33 @@
 <resources>
     <string name="app_name">RoomDemo</string>
     <string name="submit">+</string>
+    <!-- Login -->
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_sign_in">Sign In</string>
+    <string name="login_create_account">Create a new account</string>
+    <string name="login_confirm_password">Confirm Password</string>
+    <string name="login_sign_up">Sign Up</string>
+    <string name="login_go_login">Go back to Login</string>
+    <!-- Menu -->
+    <string name="list_foods">Foods</string>
+    <string name="list_drinks">Drinks</string>
+    <string name="list_medicaments">Medicaments</string>
+    <string name="list_fastFood">Fast Food</string>
+
+    <string name="title_nav_header">Menu title</string>
+    <string name="category_fragment_title">Category</string>
+    <string name="login_forgot_password">Forgot Password?</string>
+    <string name="login_reset_password">Reset my password</string>
+
+
+    <string name="cancel">Cancel</string>
+    <string name="Yes">Yes</string>
+    <string name="Are_you_sure">Are you sure?</string>
+    <string name="confirm_before_sign_in">An Email has been to you Please, confirm before sign in.</string>
+    <string name="please_make_sure_all_the_data">"Please make sure all the data is correct."</string>
+    <string name="reset_your_password">"Email has been sent to reset your password."</string>
+    <string name="user_is_now_logged_in">"User is now logged in"</string>
+    <string name="an_unexpected_error">An Unexpected error ocurred, please try again.</string>
+    <string name="logout">Logout</string>
 </resources>

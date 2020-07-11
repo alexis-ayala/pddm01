@@ -2,7 +2,6 @@ package com.anushka.roomdemo.viewmodel
 
 import android.app.Activity
 import android.content.Intent
-import androidx.core.content.ContextCompat.startActivity
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
@@ -10,11 +9,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.anushka.roomdemo.Event
+import com.anushka.roomdemo.view.SignUpActivity
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.view.CategoriaActivity
-import com.anushka.roomdemo.view.HomeActivity
-import com.anushka.roomdemo.view.MainActivity
+import com.anushka.roomdemo.view.LoginActivity
 import kotlinx.coroutines.launch
 
 
@@ -58,6 +57,7 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
             loginUser(username,password)
         }
     }
+
     fun loginUser(username: String, password: String) = viewModelScope.launch {
         val login : Usuario? = repository.getUsuario(username,password)
         if(login!=null){
@@ -74,6 +74,14 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         myIntent.putExtra("id_usuario",usuario.id)
         myIntent.putExtra("username", usuario.username)
         myIntent.putExtra("name_usuario",usuario.name)
+        activity.startActivity(myIntent)
+    }
+    fun register(){
+        val myIntent = Intent(activity, SignUpActivity::class.java)
+        activity.startActivity(myIntent)
+    }
+    fun loger(){
+        val myIntent = Intent(activity, LoginActivity::class.java)
         activity.startActivity(myIntent)
     }
     fun registerUsuario(){

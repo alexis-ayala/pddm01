@@ -7,7 +7,7 @@
             name="myViewModel"
             type="com.anushka.roomdemo.viewmodel.UsuarioViewModel" />
     </data>
-<LinearLayout
+<!--<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="15dp"
@@ -76,5 +76,99 @@
 
 
     </LinearLayout>
-</LinearLayout>
+</LinearLayout>-->
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".activities.SignUpActivity">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/name_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_marginBottom="@dimen/margin_wide"
+                android:hint="@string/login_email"
+                android:inputType="textPersonName"
+                android:text="@={myViewModel.inputName}"
+                android:paddingLeft="@dimen/login_edit_text_padding"
+                android:paddingRight="@dimen/login_edit_text_padding"
+                android:textSize="@dimen/login_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/username_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:autofillHints="" />
+
+            <EditText
+                android:id="@+id/username_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_marginBottom="@dimen/margin_wide"
+                android:hint="@string/login_email"
+                android:inputType="textEmailAddress"
+                android:text="@={myViewModel.inputUsername}"
+                android:paddingLeft="@dimen/login_edit_text_padding"
+                android:paddingRight="@dimen/login_edit_text_padding"
+                android:textSize="@dimen/login_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/password_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                android:autofillHints="" />
+
+            <EditText
+                android:id="@+id/password_text"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_edit_text_height"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_marginBottom="@dimen/margin_wide"
+                android:hint="@string/login_password"
+                android:inputType="textPassword"
+                android:text="@={myViewModel.inputPassword}"
+                android:paddingLeft="@dimen/login_edit_text_padding"
+                android:paddingRight="@dimen/login_edit_text_padding"
+                android:textSize="@dimen/login_text_size"
+                app:layout_constraintBottom_toTopOf="@+id/buttonSignUP"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                android:autofillHints="" />
+
+            <Button
+                android:id="@+id/buttonSignUP"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/login_button_height_xl"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_marginBottom="160dp"
+                android:text="@string/login_sign_up"
+                android:textSize="@dimen/login_text_size_xl"
+                app:layout_constraintBottom_toTopOf="@+id/buttonGoLogIn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/buttonGoLogIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:text="@string/login_go_login"
+                android:textSize="@dimen/login_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout >
+    </ScrollView>
 </layout>

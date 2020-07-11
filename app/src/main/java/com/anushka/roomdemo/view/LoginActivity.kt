@@ -1,24 +1,13 @@
 package com.anushka.roomdemo.view
 
-import android.content.DialogInterface
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.anushka.roomdemo.recycle.MyRecyclerViewAdapter
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ActivityLoginBinding
-import com.anushka.roomdemo.viewmodel.UsuarioViewModel
-import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
-import com.anushka.roomdemo.databinding.ActivityMainBinding
-import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.model.CompraDatabase
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.viewmodel.LoginViewModel
@@ -79,6 +68,11 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }
         })
+/*        buttonSignUp.setOnClickListener { val intent = Intent(this, SignUpActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+            startActivity(intent) }*/
+    }
         //iniDialog()
     }
     /*
@@ -86,4 +80,4 @@ class LoginActivity : AppCompatActivity() {
         basicAlert()
 
     }*/
-}
+

@@ -40,6 +40,7 @@ class MainActivity : AppCompatActivity() {
              Toast.makeText(this, it, Toast.LENGTH_LONG).show()
          }
         })
+
     }
    /*private fun initRecyclerView(){
        binding.subscriberRecyclerView.layoutManager = LinearLayoutManager(this)

@@ -1,5 +1,7 @@
 package com.anushka.roomdemo.viewmodel
 
+import android.app.Activity
+import android.content.Intent
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
 import androidx.lifecycle.LiveData
@@ -9,6 +11,8 @@ import androidx.lifecycle.viewModelScope
 import com.anushka.roomdemo.Event
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
+import com.anushka.roomdemo.view.LoginActivity
+import com.anushka.roomdemo.view.MainActivity
 import kotlinx.coroutines.launch
 
 
@@ -17,7 +21,7 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
     val usuarios = repository.usuarios
     private var isUpdateOrDelete = false
     private lateinit var usuarioToUpdateOrDelete: Usuario
-
+    lateinit var activity: Activity
 
     @Bindable
     val inputName = MutableLiveData<String>()
@@ -91,6 +95,7 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
         if (newRowId > -1) {
             statusMessage.value =
                 Event("Usuario Inserted Successfully $newRowId")
+            registrar()
         } else {
             statusMessage.value = Event("Error Occurred")
         }
@@ -111,6 +116,11 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
             statusMessage.value = Event("Ocurrio un error")
         }
 
+    }
+
+    fun registrar(){
+        val myIntent = Intent(activity, LoginActivity::class.java)
+        activity.startActivity(myIntent)
     }
 
     fun delete(usuario: Usuario) = viewModelScope.launch {

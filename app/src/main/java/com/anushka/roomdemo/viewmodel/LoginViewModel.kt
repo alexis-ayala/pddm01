@@ -15,6 +15,7 @@ import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.view.CategoriaActivity
 import com.anushka.roomdemo.view.LoginActivity
+import com.anushka.roomdemo.view.MainActivity
 import kotlinx.coroutines.launch
 
 
@@ -85,6 +86,12 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         val myIntent = Intent(activity, LoginActivity::class.java)
         activity.startActivity(myIntent)
     }
+
+    fun newUser() {
+        val myIntent = Intent(activity, MainActivity::class.java)
+        activity.startActivity(myIntent)
+    }
+
     fun registerUsuario(){
         if(inputName.value==null){
             statusMessage.value = Event("Ingresar nombre.")

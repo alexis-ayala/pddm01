@@ -23,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_login
         )
+
         val dao = CompraDatabase.getInstance(application).usuarioDAO
         val repository = UsuarioRepository(dao)
         val factory =
@@ -40,7 +41,6 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }
         })
-
 
     }
 

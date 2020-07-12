@@ -147,7 +147,7 @@
                 app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:background="@color/colorPrimary"/>
+                android:background="@color/colorSecundario"/>
 
 <!--            <TextView
                 android:id="@+id/textViewForgotPassword"

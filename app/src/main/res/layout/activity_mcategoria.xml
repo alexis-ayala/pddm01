@@ -36,6 +36,8 @@
             android:layout_height="wrap_content"
             android:onClick="@{()->myViewModel.updateCategoria()}"
             android:text="Editar"
+            android:background="@color/colorSecundario"
+            android:textColor="@color/cardview_light_background"
             android:layout_marginRight="8dp"
             />
         <Button
@@ -45,6 +47,8 @@
             android:onClick="@{()->myViewModel.deleteCate()}"
             android:layout_height="wrap_content"
             android:text="Borrar"
+            android:background="@color/colorSecundario"
+            android:textColor="@color/cardview_light_background"
             android:layout_marginLeft="8dp"
             />
     </LinearLayout>
@@ -101,7 +105,8 @@
                 android:text="@={myViewModel.createProductoButtonText}"
                 android:onClick="@{()->myViewModel.createProducto()}"
                 android:layout_marginRight="8dp"
-                />
+                android:background="@color/colorSecundario"
+                android:textColor="@color/cardview_light_background"/>
         </LinearLayout>
 
         <TextView

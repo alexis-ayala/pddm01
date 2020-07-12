@@ -141,11 +141,13 @@
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:layout_marginBottom="160dp"
                 android:text="@string/login_sign_in"
+                android:textColor="@color/cardview_light_background"
                 android:onClick="@{()->myViewModel.loginUsuario()}"
                 android:textSize="@dimen/login_text_size_xl"
                 app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/colorPrimary"/>
 
 <!--            <TextView
                 android:id="@+id/textViewForgotPassword"
@@ -164,12 +166,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/login_button_height_xl"
                 android:layout_marginStart="@dimen/margin_wide"
-                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_margin="@dimen/margin_wide"
                 android:text="@string/login_create_account"
+                android:textColor="@color/cardview_light_background"
                 android:textSize="@dimen/login_text_size"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@color/colorSecundario"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout >
     </ScrollView>

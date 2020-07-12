@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_wide">32dp</dimen>
+    <dimen name="margin_wide_small">16dp</dimen>
+    <dimen name="login_text_size">15sp</dimen>
+    <dimen name="login_text_size_xl">18sp</dimen>
+    <dimen name="login_edit_text_height">50dp</dimen>
+    <dimen name="login_edit_text_padding">10dp</dimen>
+    <dimen name="login_button_height_xl">60dp</dimen>
+    <dimen name="margin_wide_xl">80</dimen>
+</resources>

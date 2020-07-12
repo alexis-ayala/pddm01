@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RoomDemo</string>
+    <string name="submit">+</string>
+    <string name="login_email">Correo electrónico</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_sign_in">Iniciar sesión</string>
+    <string name="login_create_account">Crear cuenta</string>
+    <string name="login_confirm_password">Confirmar contraseña</string>
+    <string name="login_sign_up">Registrarse</string>
+    <string name="login_go_login">"Ir a inicio de sesión "</string>
+    <string name="cancel">Cancelar</string>
+    <string name="Yes">Aceptar</string>
+    <string name="Are_you_sure">¿Estas seguro?</string>
+    <string name="confirm_before_sign_in">Le hemos enviado un correo electrónico. Confirme antes de iniciar sesión.</string>
+    <string name="please_make_sure_all_the_data">Asegúrese de que todos los datos sean correctos.</string>
+    <string name="reset_your_password">Se ha enviado un correo electrónico para restablecer su contraseña.</string>
+    <string name="user_is_now_logged_in">El usuario ha iniciado sesión</string>
+    <string name="an_unexpected_error">Se produjo un error inesperado. Vuelve a intentarlo.</string>
+    <string name="login_name">Nombre completo</string>
+    <string name="logout">Cerrar sesión</string>
+</resources>

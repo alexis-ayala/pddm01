@@ -7,78 +7,6 @@
             name="myViewModel"
             type="com.anushka.roomdemo.viewmodel.LoginViewModel" />
     </data>
-    <!--<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="15dp"
-        android:orientation="vertical"
-        tools:context=".view.LoginActivity" >
-
-        <EditText
-            android:id="@+id/name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="@={myViewModel.inputName}"
-            android:hint="Nombre (para registrarse)"
-            android:inputType="textPersonName"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/username_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="@={myViewModel.inputUsername}"
-            android:hint="Usuario"
-            android:inputType="textPersonName"
-            android:textStyle="bold" />
-        <EditText
-            android:id="@+id/password_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:text="@={myViewModel.inputPassword}"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/create_login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@={myViewModel.createLoginButtonText}"
-                android:onClick="@{()->myViewModel.registerUsuario()}"
-                android:textSize="18sp"
-                android:hint="Registrar"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@={myViewModel.loginButtonText}"
-                android:onClick="@{()->myViewModel.loginUsuario()}"
-                android:textSize="18sp"
-                android:hint="Acceder"
-                android:textStyle="bold" />
-
-
-        </LinearLayout>
-    </LinearLayout>-->
     <ScrollView
         android:fillViewport="true"
         android:layout_width="match_parent"
@@ -90,13 +18,15 @@
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
+                android:layout_marginStart="@dimen/margin_wide"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="@dimen/margin_wide"
+                android:layout_marginBottom="@dimen/margin_wide"
                 android:src="@mipmap/logo"
                 app:layout_constraintBottom_toTopOf="@+id/username_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </ImageView>
+                app:layout_constraintTop_toTopOf="parent"></ImageView>
 
             <EditText
                 android:id="@+id/username_text"
@@ -141,27 +71,15 @@
                 android:layout_height="@dimen/login_button_height_xl"
                 android:layout_marginStart="@dimen/margin_wide"
                 android:layout_marginEnd="@dimen/margin_wide"
-                android:layout_marginBottom="160dp"
+                android:layout_marginBottom="100dp"
+                android:background="@color/colorSecundario"
+                android:onClick="@{()->myViewModel.loginUsuario()}"
                 android:text="@string/login_sign_in"
                 android:textColor="@color/cardview_light_background"
-                android:onClick="@{()->myViewModel.loginUsuario()}"
                 android:textSize="@dimen/login_text_size_xl"
                 app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                android:background="@color/colorSecundario"/>
-
-<!--            <TextView
-                android:id="@+id/textViewForgotPassword"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_wide"
-                android:layout_marginEnd="@dimen/margin_wide"
-                android:layout_marginStart="@dimen/margin_wide"
-                android:text="@string/login_forgot_password"
-                app:layout_constraintBottom_toTopOf="@+id/buttonSignUp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"/>-->
+                app:layout_constraintStart_toStartOf="parent" />
 
             <Button
                 android:id="@+id/buttonSignUp"

@@ -26,7 +26,7 @@ class sharedPreference(val context: Context){
 
         editor.commit()
     }
-    fun getValueBoolean(KEY_NAME: String, defaultValue: Boolean): Boolean {
+    fun getValueBool(KEY_NAME: String, defaultValue: Boolean): Boolean {
 
         return sharedPref.getBoolean(KEY_NAME, defaultValue)
 

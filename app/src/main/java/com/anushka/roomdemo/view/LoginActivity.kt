@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ActivityLoginBinding
 import com.anushka.roomdemo.model.CompraDatabase
@@ -28,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         )
         val dao = CompraDatabase.getInstance(application).usuarioDAO
         val repository = UsuarioRepository(dao)
-        val sharedPreference:sharedPreference=sharedPreference(this)
+        val sharedPreference =sharedPreference(application)
         val factory =
             LoginViewModelFactory(
                 repository
@@ -46,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
                 sharedPreference.save("bnd", false)
             }
         })
-        loginViewModel.loginUser(sharedPreference.getValueString("email")!!,sharedPreference.getValueString("pass")!!)
 
         loginViewModel.message.observe(this, Observer {
             it.getContentIfNotHandled()?.let {

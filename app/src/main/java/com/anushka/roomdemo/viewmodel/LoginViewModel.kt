@@ -10,7 +10,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.anushka.roomdemo.Event
-import com.anushka.roomdemo.view.SignUpActivity
+//import com.anushka.roomdemo.view.SignUpActivity
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.view.CategoriaActivity
@@ -77,10 +77,10 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         myIntent.putExtra("name_usuario",usuario.name)
         activity.startActivity(myIntent)
     }
-    fun register(){
-        val myIntent = Intent(activity, SignUpActivity::class.java)
-        activity.startActivity(myIntent)
-    }
+    //fun register(){
+     //   val myIntent = Intent(activity, SignUpActivity::class.java)
+     //   activity.startActivity(myIntent)
+    //}
     fun loger(){
         val myIntent = Intent(activity, LoginActivity::class.java)
         activity.startActivity(myIntent)

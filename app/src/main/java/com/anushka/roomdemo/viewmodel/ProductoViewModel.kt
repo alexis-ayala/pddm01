@@ -78,7 +78,7 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
                 Event("Ingresar observación")
         }else{
             val nombre = inputName.value!!
-            val precio : Double = (inputPrecio.value!!).toDouble()
+            val precio : Double = Math.round((inputPrecio.value!!).toDouble()* 100.0) / 100.0
             val observacion = inputObservacion.value!!
             val nomCat = inputNameCategoria.value!!
             var producto = Producto(0,nombre,precio,observacion,idCategoria,nomCat,idUsuario)

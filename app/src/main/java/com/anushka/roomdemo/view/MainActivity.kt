@@ -13,6 +13,7 @@ import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
 import com.anushka.roomdemo.databinding.ActivityMainBinding
 import com.anushka.roomdemo.model.CompraDatabase
 import com.anushka.roomdemo.repository.UsuarioRepository
+import com.anushka.roomdemo.sharedPreference
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

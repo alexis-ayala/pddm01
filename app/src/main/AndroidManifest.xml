@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.HomeActivity" />
-        <activity android:name=".view.MainActivity"></activity>
+        <activity android:name=".view.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
 </manifest>

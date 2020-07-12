@@ -1,6 +1,7 @@
 package com.anushka.roomdemo.viewmodel
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.content.Intent
 import androidx.databinding.Bindable
@@ -13,6 +14,7 @@ import com.anushka.roomdemo.Event
 //import com.anushka.roomdemo.view.SignUpActivity
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
+import com.anushka.roomdemo.sharedPreference
 import com.anushka.roomdemo.view.CategoriaActivity
 import com.anushka.roomdemo.view.LoginActivity
 import com.anushka.roomdemo.view.MainActivity
@@ -22,6 +24,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), Observable {
 
     lateinit var activity: Activity
+    val bnd = MutableLiveData<Boolean>()
 
     @Bindable
     val inputName = MutableLiveData<String>()
@@ -66,8 +69,10 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
             inputUsername.value = null
             inputPassword.value = null
             statusMessage.value = Event("Si existe.")
+            bnd.value = true
             loguear(login)
         }else{
+            bnd.value = false
             statusMessage.value = Event("Credenciales incorrectas.")
         }
     }

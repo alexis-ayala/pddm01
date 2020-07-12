@@ -73,7 +73,6 @@
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:layout_marginBottom="100dp"
                 android:background="@color/colorSecundario"
-                android:onClick="@{()->myViewModel.loginUsuario()}"
                 android:text="@string/login_sign_in"
                 android:textColor="@color/cardview_light_background"
                 android:textSize="@dimen/login_text_size_xl"

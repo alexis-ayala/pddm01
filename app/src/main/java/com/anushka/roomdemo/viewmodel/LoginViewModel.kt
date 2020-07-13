@@ -24,6 +24,7 @@ import kotlinx.coroutines.launch
 class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), Observable {
 
     lateinit var activity: Activity
+    @Bindable
     val bnd = MutableLiveData<Boolean>()
 
     @Bindable
@@ -121,8 +122,10 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
                 inputPassword.value = null
                 statusMessage.value = Event("Si existe.")
                 usuario.id = create.toInt()
+                bnd.value = true
                 loguear(usuario)
             }else{
+                bnd.value = false
                 statusMessage.value = Event("Credenciales incorrectas.")
             }
         }else{

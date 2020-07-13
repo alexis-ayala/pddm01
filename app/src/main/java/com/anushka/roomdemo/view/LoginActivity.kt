@@ -19,12 +19,14 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
-
+    private lateinit var email:String
+    private lateinit var password:String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
             R.layout.activity_login
         )
+
         val dao = CompraDatabase.getInstance(application).usuarioDAO
         val repository = UsuarioRepository(dao)
         val sharedPreference =sharedPreference(application)
@@ -32,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             LoginViewModelFactory(
                 repository
             )
-
+        sharedPreference.clearSharedPreference()
         loginViewModel = ViewModelProvider(this,factory).get(LoginViewModel::class.java)
         binding.myViewModel = loginViewModel
         binding.lifecycleOwner = this
@@ -40,9 +42,10 @@ class LoginActivity : AppCompatActivity() {
         //initRecyclerView()
         loginViewModel.bnd.observe(this, Observer{
             if(it){
-                sharedPreference.save("bnd",true)
+                sharedPreference.save("email",email)
+                sharedPreference.save("pass",password)
             }else{
-                sharedPreference.save("bnd", false)
+                sharedPreference.clearSharedPreference()
             }
         })
 
@@ -52,10 +55,8 @@ class LoginActivity : AppCompatActivity() {
             }
         })
         buttonLogIn.setOnClickListener {
-            val email=username_text.editableText.toString()
-            val password=password_text.editableText.toString()
-            sharedPreference.save("email",email)
-            sharedPreference.save("pass",password)
+            email=username_text.editableText.toString()
+            password=password_text.editableText.toString()
             loginViewModel.loginUsuario()
         }
 

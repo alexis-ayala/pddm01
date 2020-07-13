@@ -66,6 +66,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.0'
 
     //servicios de retrofit, json y OkHttp
+<<<<<<< Updated upstream
     implementation group: 'io.reactivex.rxjava2', name: 'rxjava', version: '2.2.0'
     implementation group: 'io.reactivex.rxjava2', name: 'rxandroid', version: '2.1.0'
 
@@ -75,4 +76,10 @@ dependencies {
 
     // RxJava support for Room
     implementation 'android.arch.persistence.room:rxjava2:1.1.1'
+=======
+    implementation "com.squareup.retrofit2:retrofit:2.4.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.okhttp3:okhttp:4.8.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+>>>>>>> Stashed changes
 }

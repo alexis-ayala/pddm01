@@ -14,6 +14,7 @@ import com.anushka.roomdemo.sharedPreference
 import com.anushka.roomdemo.viewmodel.LoginViewModel
 import com.anushka.roomdemo.viewmodelfactory.LoginViewModelFactory
 import kotlinx.android.synthetic.main.activity_login.*
+import retrofit2.Retrofit
 
 
 class LoginActivity : AppCompatActivity() {

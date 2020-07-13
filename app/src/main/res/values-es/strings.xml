@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Smart</string>
+    <string name="login_name">Nombre Completo</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_sign_in">Ingresar</string>
+    <string name="login_create_account">Crear cuenta nueva</string>
+    <string name="login_confirm_password">Confirmar contraseña</string>
+    <string name="login_sign_up">Registrarse</string>
+    <string name="login_go_login">Regresar a Ingresar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="Yes">Si</string>
+    <string name="Are_you_sure">Estas seguro?</string>
+    <string name="confirm_before_sign_in">Confirma correo antes de ingresar.</string>
+    <string name="please_make_sure_all_the_data">Revisa que los datos esten correctos</string>
+    <string name="reset_your_password">Correo enviado para reiniciar tu contraseña.</string>
+    <string name="user_is_now_logged_in">Ingresado</string>
+    <string name="an_unexpected_error">Error inesperado, intenta nuevamente</string>
+    <string name="logout">Salir</string>
+    <string name="click_back">Click a regresar nuevamente para salir</string>
+    <string name="list_name_txt">Nombre de lista</string>
+    <string name="lists_txt">Listas</string>
+    <string name="delete_txt">Borrar</string>
+    <string name="edit_txt">Editar</string>
+    <string name="add_products_txt">Agregar Productos.</string>
+    <string name="product_txt">Producto</string>
+    <string name="price_txt">Precio</string>
+    <string name="description_txt">Descripcion</string>
+    <string name="products_txt">Productos.</string>
+    <string name="list_limit_txt">Limite de lista</string>
+</resources>

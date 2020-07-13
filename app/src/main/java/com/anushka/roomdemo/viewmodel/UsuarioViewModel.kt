@@ -12,6 +12,7 @@ import com.anushka.roomdemo.Event
 import com.anushka.roomdemo.goToActivity
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
+import com.anushka.roomdemo.view.CategoriaActivity
 import com.anushka.roomdemo.view.LoginActivity
 import com.anushka.roomdemo.view.MainActivity
 import kotlinx.coroutines.launch
@@ -23,6 +24,9 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
     private var isUpdateOrDelete = false
     private lateinit var usuarioToUpdateOrDelete: Usuario
     lateinit var activity: Activity
+
+    @Bindable
+    val bnd = MutableLiveData<Boolean>()
 
     @Bindable
     val inputName = MutableLiveData<String>()
@@ -49,38 +53,48 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
         clearAllOrDeleteButtonText.value = "Clear All"
     }
 
-    fun saveOrUpdate() {
-
-        if (inputName.value == null) {
-            statusMessage.value =
-                Event("Favor ingresar nombre")
-        } else if (inputUsername.value == null) {
-            statusMessage.value =
-                Event("Favor ingresar usuario")
-        } else if (inputPassword.value == null) {
-            statusMessage.value =
-                Event("Favor ingresar contraseña")
-        //} else if (!Patterns.EMAIL_ADDRESS.matcher(inputEmail.value!!).matches()) {
-            //statusMessage.value = Event("Please enter a correct email address")
-        } else {
-            if (isUpdateOrDelete) {
-                usuarioToUpdateOrDelete.name = inputName.value!!
-                usuarioToUpdateOrDelete.username = inputUsername.value!!
-                usuarioToUpdateOrDelete.password = inputPassword.value!!
-                update(usuarioToUpdateOrDelete)
-            } else {
-                val name = inputName.value!!
-                val username = inputUsername.value!!
-                val password = inputPassword.value!!
-                insert(Usuario(0, name, username, password))
-                inputName.value = null
+    fun registerUsuario(){
+        if(inputName.value==null){
+            statusMessage.value = Event("Ingresar nombre.")
+        }else if(inputUsername.value==null){
+            statusMessage.value = Event("Ingresar usuario")
+        }else if(inputPassword.value==null){
+            statusMessage.value = Event("Ingresar contraseña")
+        }else{
+            val username = inputUsername.value!!
+            val password = inputPassword.value!!
+            val name = inputName.value!!
+            val usuario = Usuario(0,name,username,password)
+            loginCreate(usuario)
+        }
+    }
+    fun loginCreate(usuario: Usuario) = viewModelScope.launch {
+        val user = repository.findUsuario(usuario.username)
+        if (user == null) {
+            val create = repository.insert(usuario)
+            if (create > -1) {
                 inputUsername.value = null
                 inputPassword.value = null
+                statusMessage.value = Event("Si existe.")
+                usuario.id = create.toInt()
+                bnd.value = true
+                loguear(usuario)
+            } else {
+                bnd.value = false
+                statusMessage.value = Event("Credenciales incorrectas.")
             }
+        } else {
+            statusMessage.value = Event("Error: usuario ya existe")
         }
-
-
     }
+
+        fun loguear(usuario: Usuario){
+            val myIntent = Intent(activity, CategoriaActivity::class.java)
+            myIntent.putExtra("id_usuario",usuario.id)
+            myIntent.putExtra("username", usuario.username)
+            myIntent.putExtra("name_usuario",usuario.name)
+            activity.startActivity(myIntent)
+        }
 
     fun insert(usuario: Usuario) = viewModelScope.launch {
         val newRowId = repository.insert(usuario)

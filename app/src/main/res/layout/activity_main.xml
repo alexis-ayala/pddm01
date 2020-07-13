@@ -95,7 +95,7 @@
                 android:layout_marginStart="@dimen/margin_wide"
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:layout_marginBottom="100dp"
-                android:onClick="@{()->myViewModel.saveOrUpdate()}"
+                android:onClick="@{()->myViewModel.registerUsuario()}"
                 android:textColor="@color/cardview_light_background"
                 android:background="@color/colorSecundario"
                 android:text="@string/login_sign_up"

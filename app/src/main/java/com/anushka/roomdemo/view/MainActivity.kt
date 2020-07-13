@@ -37,35 +37,13 @@ class MainActivity : AppCompatActivity() {
         //initRecyclerView()
 
         usuarioViewModel.message.observe(this, Observer {
-         it.getContentIfNotHandled()?.let {
-             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
-         }
+            it.getContentIfNotHandled()?.let {
+                Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            }
         })
         buttonGoLogIn.setOnClickListener{
             goToActivity<HomeActivity>()
         }
 
     }
-   /*private fun initRecyclerView(){
-       binding.subscriberRecyclerView.layoutManager = LinearLayoutManager(this)
-       adapter =
-           MyRecyclerViewAdapter({ selectedItem: Usuario ->
-               listItemClicked(selectedItem)
-           })
-       binding.subscriberRecyclerView.adapter = adapter
-       displaySubscribersList()
-   }*/
-
-    /*private fun displaySubscribersList(){
-        usuarioViewModel.usuarios.observe(this, Observer {
-            Log.i("MYTAG",it.toString())
-            adapter.setList(it)
-            adapter.notifyDataSetChanged()
-        })
-    }
-
-    private fun listItemClicked(usuario: Usuario){
-        //Toast.makeText(this,"selected name is ${usuario.name}",Toast.LENGTH_LONG).show()
-        usuarioViewModel.initUpdateAndDelete(usuario)
-    }*/
 }

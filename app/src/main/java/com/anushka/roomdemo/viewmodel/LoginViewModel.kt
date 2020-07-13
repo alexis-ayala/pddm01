@@ -94,41 +94,6 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         val myIntent = Intent(activity, MainActivity::class.java)
         activity.startActivity(myIntent)
     }
-
-    fun registerUsuario(){
-        if(inputName.value==null){
-            statusMessage.value = Event("Ingresar nombre.")
-        }else if(inputUsername.value==null){
-            statusMessage.value = Event("Ingresar usuario")
-        }else if(inputPassword.value==null){
-            statusMessage.value = Event("Ingresar contraseña")
-        }else{
-            val username = inputUsername.value!!
-            val password = inputPassword.value!!
-            val name = inputName.value!!
-            val usuario = Usuario(0,name,username,password)
-            loginCreate(usuario)
-        }
-    }
-    fun loginCreate(usuario: Usuario) = viewModelScope.launch {
-        val user = repository.findUsuario(usuario.username)
-        if(user==null){
-            val create = repository.insert(usuario)
-            if(create>-1){
-                inputUsername.value = null
-                inputPassword.value = null
-                statusMessage.value = Event("Si existe.")
-                usuario.id = create.toInt()
-                bnd.value = true
-                loguear(usuario)
-            }else{
-                bnd.value = false
-                statusMessage.value = Event("Credenciales incorrectas.")
-            }
-        }else{
-            statusMessage.value = Event("Error: usuario ya existe")
-        }
-    }
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
 
     }

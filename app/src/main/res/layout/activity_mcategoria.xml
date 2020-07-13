@@ -16,12 +16,22 @@
         tools:context=".view.CategoriaActivity" >
         <EditText
             android:id="@+id/categoria_text"
-            android:hint="Categoría"
+            android:hint="@string/list_name_txt"
             android:text="@={myViewModel.inputNameCategoria}"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="@dimen/login_text_size"
             android:textStyle="bold"
+            />
+        <EditText
+            android:id="@+id/list_limit"
+            android:hint="@string/list_limit_txt"
+            android:text="@={myViewModel.inputLimitCategoria}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/login_text_size"
+            android:textStyle="bold"
+            android:inputType="numberDecimal"
             />
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +45,7 @@
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:onClick="@{()->myViewModel.updateCategoria()}"
-            android:text="Editar"
+            android:text="@string/edit_txt"
             android:background="@color/colorSecundario"
             android:textColor="@color/cardview_light_background"
             android:layout_marginRight="8dp"
@@ -46,7 +56,7 @@
             android:layout_weight="1"
             android:onClick="@{()->myViewModel.deleteCate()}"
             android:layout_height="wrap_content"
-            android:text="Borrar"
+            android:text="@string/delete_txt"
             android:background="@color/colorSecundario"
             android:textColor="@color/cardview_light_background"
             android:layout_marginLeft="8dp"
@@ -54,40 +64,40 @@
     </LinearLayout>
 
         <TextView
-            android:text="Agregar productos."
+            android:text="@string/add_products_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="@dimen/login_text_size"
             android:textStyle="bold"
             />
 
         <EditText
             android:id="@+id/nombre_producto_text"
-            android:hint="Descripción"
+            android:hint="@string/product_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={myViewModel.inputName}"
-            android:textSize="20dp"
+            android:textSize="@dimen/login_text_size"
             android:textStyle="bold"
             android:inputType="textPersonName"
             />
         <EditText
             android:id="@+id/precio_producto_text"
-            android:hint="Precio"
+            android:hint="@string/price_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={myViewModel.inputPrecio}"
-            android:textSize="20dp"
+            android:textSize="@dimen/login_text_size"
             android:textStyle="bold"
             android:inputType="numberDecimal"
             />
         <EditText
             android:id="@+id/observacion_producto_text"
-            android:hint="Observación"
+            android:hint="@string/description_txt"
             android:text="@={myViewModel.inputObservacion}"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:textSize="20dp"
+            android:textSize="@dimen/login_text_size"
             android:textStyle="bold"
             android:inputType="textMultiLine"
             />
@@ -110,10 +120,10 @@
         </LinearLayout>
 
         <TextView
-            android:text="Productos asignados."
+            android:text="@string/products_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20dp"
+            android:textSize="@dimen/title_text_size_xl"
             android:textStyle="bold"
             />
         <androidx.recyclerview.widget.RecyclerView

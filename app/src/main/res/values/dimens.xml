@@ -6,4 +6,5 @@
     <dimen name="login_text_size">18sp</dimen>
     <dimen name="login_button_height_xl">50sp</dimen>
     <dimen name="login_text_size_xl">15sp</dimen>
+    <dimen name="title_text_size_xl">25sp</dimen>
 </resources>

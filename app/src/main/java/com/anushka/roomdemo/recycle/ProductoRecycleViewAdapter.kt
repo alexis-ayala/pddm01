@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ListCategoriaBinding
-import com.anushka.roomdemo.databinding.ListItemBinding
 import com.anushka.roomdemo.databinding.ListProductoBinding
 import com.anushka.roomdemo.model.Categoria
 import com.anushka.roomdemo.model.Producto
@@ -47,11 +46,5 @@ class ProductoViewHolder(val binding: ListProductoBinding):RecyclerView.ViewHold
         binding.nameTextView.text = producto.name
         binding.observacionTextView.text = producto.observacion
         binding.precioTextView.text = producto.precio.toString()
-        /*binding.nameTextView.text = categoria.name
-        binding.idUsuarioTextView.text = categoria.idUsername.toString()
-        binding.idTextView.text = categoria.id.toString()
-        binding.listCategoriaLayout.setOnClickListener{
-            clickListener(categoria)
-        }*/
     }
 }

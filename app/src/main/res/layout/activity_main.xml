@@ -7,79 +7,6 @@
             name="myViewModel"
             type="com.anushka.roomdemo.viewmodel.UsuarioViewModel" />
     </data>
-<!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="15dp"
-        android:orientation="vertical"
-        tools:context=".view.MainActivity">
-
-        <EditText
-            android:id="@+id/name_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:hint="Nombre personal"
-            android:inputType="textPersonName"
-            android:text="@={myViewModel.inputName}"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/username_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:hint="Usuario"
-            android:inputType="textPersonName"
-            android:text="@={myViewModel.inputUsername}"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/email_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:ems="10"
-            android:hint="Contraseña"
-            android:inputType="textPassword"
-            android:text="@={myViewModel.inputPassword}"
-            android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/save_or_update_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_wide"
-                android:layout_weight="1"
-                android:background="@color/colorPrincipal"
-                android:onClick="@{()->myViewModel.saveOrUpdate()}"
-                android:text="@={myViewModel.saveOrUpdateButtonText}"
-                android:textColor="@color/cardview_light_background"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <ImageView
-            android:layout_width="300dp"
-            android:layout_height="300dp"
-            android:layout_gravity="center"
-            android:layout_margin="@dimen/margin_wide"
-            android:src="@mipmap/logo"/>
-
-    </LinearLayout>-->
 
     <ScrollView
         android:fillViewport="true"
@@ -169,6 +96,8 @@
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:layout_marginBottom="100dp"
                 android:onClick="@{()->myViewModel.saveOrUpdate()}"
+                android:textColor="@color/cardview_light_background"
+                android:background="@color/colorSecundario"
                 android:text="@string/login_sign_up"
                 android:textSize="@dimen/login_text_size_xl"
                 app:layout_constraintBottom_toTopOf="@+id/buttonGoLogIn"
@@ -183,6 +112,8 @@
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:text="@string/login_go_login"
                 android:textSize="@dimen/login_text_size"
+                android:textColor="@color/cardview_light_background"
+                android:background="@color/colorSecundario"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"

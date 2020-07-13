@@ -82,15 +82,6 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
 
     }
 
-    fun clearAllOrDelete() {
-        if (isUpdateOrDelete) {
-            delete(usuarioToUpdateOrDelete)
-        } else {
-            clearAll()
-        }
-
-    }
-
     fun insert(usuario: Usuario) = viewModelScope.launch {
         val newRowId = repository.insert(usuario)
         if (newRowId > -1) {
@@ -140,16 +131,6 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
             statusMessage.value = Event("Ocurrio un error")
         }
 
-    }
-
-    fun clearAll() = viewModelScope.launch {
-        val noOfRowsDeleted = repository.deleteAll()
-        if (noOfRowsDeleted > 0) {
-            statusMessage.value =
-                Event("$noOfRowsDeleted Usuarios borrados")
-        } else {
-            statusMessage.value = Event("Ocurrio un error")
-        }
     }
 
     fun initUpdateAndDelete(usuario: Usuario) {

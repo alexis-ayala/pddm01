@@ -7,7 +7,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.databinding.ListCategoriaBinding
-import com.anushka.roomdemo.databinding.ListItemBinding
 import com.anushka.roomdemo.model.Categoria
 
 class CategoriaRecycleViewAdapter(private val clickListener:(Categoria)->Unit)

@@ -37,6 +37,9 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
     val inputNameCategoria = MutableLiveData<String>()
 
     @Bindable
+    val inputLimitCategoria = MutableLiveData<String>()
+
+    @Bindable
     val inputName = MutableLiveData<String>()
 
     @Bindable
@@ -57,13 +60,12 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
         categoria = repository.getCategoria()!!
         createProductoButtonText.value = "Agregar"
         inputNameCategoria.value = categoria.name
+        inputLimitCategoria.value = categoria.limit.toString()
     }
     fun initSeleccion(producto: Producto) {
         productoSeleccionada = producto
         statusMessage.value =
             Event("Producto: id = ${producto.id}, nombre = ${producto.name} y usuario = ${producto.idUsername}")
-        //val myIntent = Intent(activity, McategoriaActivity::class.java)
-        //activity.startActivity(myIntent)
     }
 
     fun createProducto(){
@@ -92,8 +94,13 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
         if(inputNameCategoria.value==null){
             statusMessage.value =
                 Event("Ingresar nombre categoría")
+
+        }else if(inputLimitCategoria.value==null){
+        statusMessage.value =
+            Event("Ingresar limite categoría, 0.0 sin limite")
         }else{
             categoria.name = inputNameCategoria.value!!
+            categoria.limit = Math.round((inputLimitCategoria.value!!).toDouble()* 100.0) / 100.0
             var newUpdate = repository.updateCategoria(categoria!!)
             if (newUpdate > -1) {
                 statusMessage.value =
@@ -114,18 +121,7 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
         }
         statusMessage.value = Event("Llega deletecat")
     }
-    fun insertCate(categoria: Categoria) = viewModelScope.launch {
 
-        val newRowId = repository.updateCategoria(categoria)
-        if (newRowId > -1) {
-            statusMessage.value =
-                Event("Cambio efectuado.")
-            val nomCate = inputNameCategoria.value!!
-            repository.updateAll(nomCate)
-        } else {
-            statusMessage.value = Event("Error desconocido")
-        }
-    }
     fun insert(producto: Producto) = viewModelScope.launch {
 
         val newRowId = repository.insert(producto)

@@ -14,6 +14,9 @@ data class Categoria (
     @ColumnInfo(name = "name")
     var name : String,
 
+    @ColumnInfo(name = "limit")
+    var limit : Double,
+
     @ColumnInfo(name = "idUsername")
     var idUsername : Int
 )

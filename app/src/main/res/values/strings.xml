@@ -5,7 +5,7 @@
     <string name="login_name">Full name</string>
     <string name="login_email">Email</string>
     <string name="login_password">Password</string>
-    <string name="login_sign_in">Sign In</string>
+    <string name="login_sign_in">Login</string>
     <string name="login_create_account">Create a new account</string>
     <string name="login_confirm_password">Confirm Password</string>
     <string name="login_sign_up">Sign Up</string>
@@ -22,4 +22,14 @@
     <string name="an_unexpected_error">An Unexpected error ocurred, please try again.</string>
     <string name="logout">Logout</string>
     <string name="click_back">Click back againt to exit this screen</string>
+    <string name="list_name_txt">List Name</string>
+    <string name="lists_txt">Lists</string>
+    <string name="delete_txt">Delete</string>
+    <string name="edit_txt">Edit</string>
+    <string name="add_products_txt">Add Products.</string>
+    <string name="product_txt">Product</string>
+    <string name="price_txt">Price</string>
+    <string name="description_txt">Description</string>
+    <string name="products_txt">Products.</string>
+    <string name="list_limit_txt">List limit</string>
 </resources>

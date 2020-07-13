@@ -6,7 +6,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.anushka.roomdemo.recycle.MyRecyclerViewAdapter
 import com.anushka.roomdemo.R
 import com.anushka.roomdemo.viewmodel.UsuarioViewModel
 import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
@@ -20,7 +19,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var usuarioViewModel: UsuarioViewModel
-    private lateinit var adapter: MyRecyclerViewAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,

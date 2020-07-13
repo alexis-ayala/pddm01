@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Listado de categorías"
+            android:text="@string/lists_txt"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             android:textSize="18dp"
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="@={myViewModel.inputName}"
-                android:hint="Categoría"
+                android:hint="@string/list_name_txt"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:layout_weight="1"

@@ -84,10 +84,7 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         myIntent.putExtra("name_usuario",usuario.name)
         activity.startActivity(myIntent)
     }
-    //fun register(){
-     //   val myIntent = Intent(activity, SignUpActivity::class.java)
-     //   activity.startActivity(myIntent)
-    //}
+
     fun loger(){
         val myIntent = Intent(activity, LoginActivity::class.java)
         activity.startActivity(myIntent)

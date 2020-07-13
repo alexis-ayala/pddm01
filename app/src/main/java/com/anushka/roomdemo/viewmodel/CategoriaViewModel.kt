@@ -59,12 +59,13 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
         }
     }
     fun insert(cat: String) = viewModelScope.launch {
-        val cate : Categoria = Categoria(0,cat,repository.idUsuario)
+        val cate : Categoria = Categoria(0,cat,0.0,repository.idUsuario)
 
         val newRowId = repository.insert(cate)
         if (newRowId > -1) {
             statusMessage.value =
                 Event("Categoría ingresada.")
+            inputName.value=""
         } else {
             statusMessage.value = Event("Error desconocido")
         }

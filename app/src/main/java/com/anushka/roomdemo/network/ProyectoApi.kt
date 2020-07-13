@@ -1,10 +1,12 @@
-package com.anushka.roomdemo.network
+/*package com.anushka.roomdemo.network
 
 import retrofit2.Call
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import retrofit2.http.GET
+
+//Comienzo de Api, aun no temrinado.
 
 private const val BASE_URL = "https://arielito.herokuapp.com"
 
@@ -25,4 +27,4 @@ object ProyApi {
         retrofit.create(ProyectoApi::class.java)
     }
 
-}
+}*/

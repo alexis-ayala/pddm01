@@ -13,13 +13,14 @@
         android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+           android:focusableInTouchMode="true">
 
             <ImageView
                 android:layout_width="250dp"
                 android:layout_height="250dp"
                 android:layout_marginStart="@dimen/margin_wide"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="@dimen/margin_wide"
                 android:layout_marginEnd="@dimen/margin_wide"
                 android:layout_marginBottom="@dimen/margin_wide"
                 android:src="@mipmap/logo"

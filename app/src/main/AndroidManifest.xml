@@ -14,13 +14,14 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         -->
         <activity android:name=".view.McategoriaActivity" />
-        <activity android:name=".view.CategoriaActivity" />
+        <activity android:name=".view.CategoriaActivity" android:noHistory="true"/>
         <activity
             android:name=".view.LoginActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/NoPreview">
         </activity>
         <activity android:name=".view.HomeActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

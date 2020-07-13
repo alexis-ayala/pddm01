@@ -1,7 +1,9 @@
 package com.anushka.roomdemo.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -25,6 +27,7 @@ class CategoriaActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCategoriaBinding
     private lateinit var categoriaViewModel: CategoriaViewModel
     private lateinit var adapter: CategoriaRecycleViewAdapter
+    private var exitEnable = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this,
@@ -53,6 +56,13 @@ class CategoriaActivity : AppCompatActivity() {
                 Toast.makeText(this, it, Toast.LENGTH_LONG).show()
             }
         })
+
+
+    }
+
+   override fun onBackPressed() {
+
+       finishAffinity()
     }
     private fun initRecyclerView(){
         binding.categoriaRecyclerView.layoutManager = LinearLayoutManager(this)

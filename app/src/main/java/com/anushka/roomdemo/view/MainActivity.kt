@@ -11,9 +11,11 @@ import com.anushka.roomdemo.R
 import com.anushka.roomdemo.viewmodel.UsuarioViewModel
 import com.anushka.roomdemo.viewmodelfactory.UsuarioViewModelFactory
 import com.anushka.roomdemo.databinding.ActivityMainBinding
+import com.anushka.roomdemo.goToActivity
 import com.anushka.roomdemo.model.CompraDatabase
 import com.anushka.roomdemo.repository.UsuarioRepository
 import com.anushka.roomdemo.sharedPreference
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -41,6 +43,9 @@ class MainActivity : AppCompatActivity() {
              Toast.makeText(this, it, Toast.LENGTH_LONG).show()
          }
         })
+        buttonGoLogIn.setOnClickListener{
+            goToActivity<HomeActivity>()
+        }
 
     }
    /*private fun initRecyclerView(){

@@ -59,8 +59,6 @@ class LoginActivity : AppCompatActivity() {
             password=password_text.editableText.toString()
             loginViewModel.loginUsuario()
         }
-
     }
-
     }
 

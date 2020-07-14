@@ -72,29 +72,23 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
         val user = repository.findUsuario(usuario.username)
         if (user == null) {
             val create = repository.insert(usuario)
-            if (create > -1) {
+
+           if (create > -1) {
+                inputName.value=null
                 inputUsername.value = null
                 inputPassword.value = null
-                statusMessage.value = Event("Si existe.")
+                statusMessage.value = Event("Usuario creado con exito")
                 usuario.id = create.toInt()
-                bnd.value = true
-                loguear(usuario)
+
             } else {
-                bnd.value = false
-                statusMessage.value = Event("Credenciales incorrectas.")
+                statusMessage.value = Event("Intente nuevamente.")
             }
         } else {
             statusMessage.value = Event("Error: usuario ya existe")
         }
     }
 
-        fun loguear(usuario: Usuario){
-            val myIntent = Intent(activity, CategoriaActivity::class.java)
-            myIntent.putExtra("id_usuario",usuario.id)
-            myIntent.putExtra("username", usuario.username)
-            myIntent.putExtra("name_usuario",usuario.name)
-            activity.startActivity(myIntent)
-        }
+
 
     fun insert(usuario: Usuario) = viewModelScope.launch {
         val newRowId = repository.insert(usuario)

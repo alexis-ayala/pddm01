@@ -69,7 +69,7 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
         if(login!=null){
             inputUsername.value = null
             inputPassword.value = null
-            statusMessage.value = Event("Si existe.")
+            statusMessage.value = Event("Bienvenido.")
             bnd.value = true
             loguear(login)
         }else{

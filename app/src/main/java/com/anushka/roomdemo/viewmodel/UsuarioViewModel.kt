@@ -64,12 +64,12 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
             val username = inputUsername.value!!
             val password = inputPassword.value!!
             val name = inputName.value!!
-            val usuario = Usuario(0,name,username,password)
+            val usuario = Usuario(0,"","")
             loginCreate(usuario)
         }
     }
     fun loginCreate(usuario: Usuario) = viewModelScope.launch {
-        val user = repository.findUsuario(usuario.username)
+        val user = repository.findUsuario(usuario.contra)
         if (user == null) {
             val create = repository.insert(usuario)
 
@@ -78,7 +78,7 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
                 inputUsername.value = null
                 inputPassword.value = null
                 statusMessage.value = Event("Usuario creado con exito")
-                usuario.id = create.toInt()
+                usuario.id_usuario = create.toInt()
 
             } else {
                 statusMessage.value = Event("Intente nuevamente.")
@@ -143,8 +143,8 @@ class UsuarioViewModel(private val repository: UsuarioRepository) : ViewModel(),
 
     fun initUpdateAndDelete(usuario: Usuario) {
         inputName.value = usuario.name
-        inputUsername.value = usuario.username
-        inputPassword.value = usuario.password
+        inputUsername.value = usuario.name
+        inputPassword.value = usuario.contra
         isUpdateOrDelete = true
         usuarioToUpdateOrDelete = usuario
         saveOrUpdateButtonText.value = "Actualizar"

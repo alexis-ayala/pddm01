@@ -17,24 +17,24 @@ interface ProductoDao {
     @Delete
     suspend fun delete(producto: Producto) : Int
 
-    @Query("DELETE FROM table_compra_producto")
+    @Query("DELETE FROM articulo")
     suspend fun deleteAll() : Int
 
-    @Query("UPDATE table_compra_producto set nombreCategoria=:nomCat where idCategoria=:idCategoria")
+    @Query("UPDATE categoria set =:nomCat where cat_id=:idCategoria")
     suspend fun updateAll(idCategoria: Int, nomCat: String) : Int
 
-    @Query("DELETE FROM table_compra_producto where idUsername=:idUsuario")
+    @Query("DELETE FROM usuario where idusuario=:idUsuario")
     suspend fun deleteAllUsuario(idUsuario: Int) : Int
 
-    @Query("DELETE FROM table_compra_producto where idCategoria=:idCategoria")
+    @Query("DELETE FROM categoria where cat_id=:idCategoria")
     suspend fun deleteCatProducto(idCategoria: Int) : Int
 
-    @Query("SELECT * FROM table_compra_producto")
+    @Query("SELECT * FROM articulo")
     fun getAllCategoria():LiveData<List<Producto>>
 
-    @Query("SELECT * FROM table_compra_producto where idUsername=:idUsername and idCategoria=:idCategoria")
+    @Query("SELECT * FROM articulo where articulo_id=:idUsername and cat_id=:idCategoria")
     fun getAllProductoUsuario(idUsername: Int, idCategoria: Int):LiveData<List<Producto>>
 
-    @Query("SELECT * FROM table_compra_producto where id=:id")
+    @Query("SELECT * FROM articulo where articulo_id=:id")
     suspend fun getProducto(id: Int): Producto
 }

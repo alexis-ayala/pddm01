@@ -43,7 +43,7 @@ class ProductoRecycleViewAdapter(private val clickListener:(Producto)->Unit)
 class ProductoViewHolder(val binding: ListProductoBinding):RecyclerView.ViewHolder(binding.root){
 
     fun bind(producto: Producto, clickListener:(Producto)->Unit){
-        binding.nameTextView.text = producto.name
+        binding.nameTextView.text = producto.nombre
         binding.observacionTextView.text = producto.observacion
         binding.precioTextView.text = producto.precio.toString()
     }

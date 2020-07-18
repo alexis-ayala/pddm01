@@ -4,19 +4,16 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_compra_usuario")
+@Entity(tableName = "usuario")
 data class Usuario (
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id : Int,
+    @ColumnInfo(name = "idusuario")
+    var id_usuario : Int,
 
-    @ColumnInfo(name = "name")
+    @ColumnInfo(name = "nomusuario")
     var name : String,
 
-    @ColumnInfo(name = "username")
-    var username : String,
-
-    @ColumnInfo(name = "password")
-    var password : String
+    @ColumnInfo(name = "contra")
+    var contra : String
 )

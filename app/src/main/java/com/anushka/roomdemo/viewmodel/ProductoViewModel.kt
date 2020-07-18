@@ -59,13 +59,13 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
     fun iniCategoria()= viewModelScope.launch {
         categoria = repository.getCategoria()!!
         createProductoButtonText.value = "Agregar"
-        inputNameCategoria.value = categoria.name
-        inputLimitCategoria.value = categoria.limit.toString()
+        inputNameCategoria.value = categoria.nombre
+        inputLimitCategoria.value = categoria.limite.toString()
     }
     fun initSeleccion(producto: Producto) {
         productoSeleccionada = producto
         statusMessage.value =
-            Event("Producto: id = ${producto.id}, nombre = ${producto.name} y usuario = ${producto.idUsername}")
+            Event("Producto: id = ${producto.articulo_id}, nombre = ${producto.nombre} y usuario = ${producto.cat_id}")
     }
 
     fun createProducto(){
@@ -83,7 +83,7 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
             val precio : Double = Math.round((inputPrecio.value!!).toDouble()* 100.0) / 100.0
             val observacion = inputObservacion.value!!
             val nomCat = inputNameCategoria.value!!
-            var producto = Producto(0,nombre,precio,observacion,idCategoria,nomCat,idUsuario)
+            var producto = Producto(0,0,"",precio,"")
             insert(producto)
             inputName.value=""
             inputObservacion.value=""
@@ -99,8 +99,8 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
         statusMessage.value =
             Event("Ingresar limite categoría, 0.0 sin limite")
         }else{
-            categoria.name = inputNameCategoria.value!!
-            categoria.limit = Math.round((inputLimitCategoria.value!!).toDouble()* 100.0) / 100.0
+            categoria.nombre = inputNameCategoria.value!!
+            categoria.limite = Math.round((inputLimitCategoria.value!!).toDouble()* 100.0) / 100.0
             var newUpdate = repository.updateCategoria(categoria!!)
             if (newUpdate > -1) {
                 statusMessage.value =

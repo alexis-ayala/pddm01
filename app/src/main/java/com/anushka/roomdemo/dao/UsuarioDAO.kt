@@ -16,15 +16,15 @@ interface UsuarioDAO {
     @Delete
     suspend fun deleteUsuario(usuario: Usuario) : Int
 
-    @Query("DELETE FROM table_compra_usuario")
+    @Query("DELETE FROM usuario")
     suspend fun deleteAll() : Int
 
-    @Query("SELECT * FROM table_compra_usuario")
+    @Query("SELECT * FROM usuario")
     fun getAllUsuario():LiveData<List<Usuario>>
 
-    @Query("SELECT * FROM table_compra_usuario where username=:username and password=:password")
+    @Query("SELECT * FROM usuario where nomusuario=:username and contra=:password")
     suspend fun getUsuario(username: String, password: String): Usuario
 
-    @Query("SELECT * FROM table_compra_usuario where username=:username")
+    @Query("SELECT * FROM usuario where nomusuario=:username")
     suspend fun findUsuario(username: String): Usuario
 }

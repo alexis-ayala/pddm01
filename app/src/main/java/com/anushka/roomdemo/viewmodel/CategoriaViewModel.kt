@@ -42,10 +42,10 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
     fun initSeleccion(categoria: Categoria) {
         categoriaSeleccionada = categoria
         statusMessage.value =
-            Event("Categoria: id = ${categoria.id}, nombre = ${categoria.name} y usuario = ${categoria.idUsername}")
+            Event("Categoria: id = ${categoria.cat_id}, nombre = ${categoria.nombre} y usuario = ${categoria.idusuario}")
         val myIntent = Intent(activity, McategoriaActivity::class.java)
         myIntent.putExtra("id_usuario",repository.idUsuario)
-        myIntent.putExtra("id_categoria",categoria.id)
+        myIntent.putExtra("id_categoria",categoria.cat_id)
         activity.startActivity(myIntent)
     }
 
@@ -59,7 +59,7 @@ class CategoriaViewModel(private val repository: CategoriaRepository) : ViewMode
         }
     }
     fun insert(cat: String) = viewModelScope.launch {
-        val cate : Categoria = Categoria(0,cat,0.0,repository.idUsuario)
+        val cate : Categoria = Categoria(0,0,"",0.0)
 
         val newRowId = repository.insert(cate)
         if (newRowId > -1) {

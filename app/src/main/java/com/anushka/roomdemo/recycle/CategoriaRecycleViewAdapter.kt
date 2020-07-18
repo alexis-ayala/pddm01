@@ -41,9 +41,9 @@ class CategoriaRecycleViewAdapter(private val clickListener:(Categoria)->Unit)
 class CategoriaViewHolder(val binding: ListCategoriaBinding):RecyclerView.ViewHolder(binding.root){
 
     fun bind(categoria: Categoria, clickListener:(Categoria)->Unit){
-        binding.nameTextView.text = categoria.name
-        binding.idUsuarioTextView.text = categoria.idUsername.toString()
-        binding.idTextView.text = categoria.id.toString()
+        binding.nameTextView.text = categoria.nombre
+        binding.idUsuarioTextView.text = categoria.idusuario.toString()
+        binding.idTextView.text = categoria.cat_id.toString()
         binding.listCategoriaLayout.setOnClickListener{
             clickListener(categoria)
         }

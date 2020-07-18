@@ -79,8 +79,8 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
     }
     fun loguear(usuario: Usuario){
         val myIntent = Intent(activity, CategoriaActivity::class.java)
-        myIntent.putExtra("id_usuario",usuario.id)
-        myIntent.putExtra("username", usuario.username)
+        myIntent.putExtra("id_usuario",usuario.id_usuario)
+        myIntent.putExtra("username", usuario.name)
         myIntent.putExtra("name_usuario",usuario.name)
         activity.startActivity(myIntent)
     }

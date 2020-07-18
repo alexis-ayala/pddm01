@@ -16,18 +16,18 @@ interface CategoriaDao {
     @Delete
     suspend fun deleteCategoria(categoria: Categoria) : Int
 
-    @Query("DELETE FROM table_compra_categoria")
+    @Query("DELETE FROM categoria")
     suspend fun deleteAll() : Int
 
-    @Query("DELETE FROM table_compra_categoria where idUsername=:idUsuario")
+    @Query("DELETE FROM categoria where idusuario=:idUsuario")
     suspend fun deleteAllUsuario(idUsuario: Int) : Int
 
-    @Query("SELECT * FROM table_compra_categoria")
+    @Query("SELECT * FROM categoria")
     fun getAllCategoria():LiveData<List<Categoria>>
 
-    @Query("SELECT * FROM table_compra_categoria where idUsername=:idUsername")
+    @Query("SELECT * FROM categoria where idusuario=:idUsername")
     fun getAllCategoriaUsuario(idUsername: Int):LiveData<List<Categoria>>
 
-    @Query("SELECT * FROM table_compra_categoria where id=:id")
+    @Query("SELECT * FROM categoria where cat_id=:id")
     suspend fun getCategoria(id: Int): Categoria
 }

@@ -11,8 +11,8 @@ class DataShared (var parametro: Bundle) {
     var id_producto : Int = 0
 
     init {
-        if(parametro.getInt("id_usuario")!=null){
-            id_usuario = parametro.getInt("id_usuario")
+        if(parametro.getInt("idusuario")!=null){
+            id_usuario = parametro.getInt("idusuario")
         }
         if(parametro.getInt("id_categoria")!=null){
             id_categoria = parametro.getInt("id_categoria")

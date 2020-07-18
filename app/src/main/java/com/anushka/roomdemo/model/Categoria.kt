@@ -4,19 +4,19 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "table_compra_categoria")
+@Entity(tableName = "categoria")
 data class Categoria (
 
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
-    var id : Int,
+    @ColumnInfo(name = "cat_id")
+    var cat_id : Int,
 
-    @ColumnInfo(name = "name")
-    var name : String,
+    @ColumnInfo(name = "idusuario")
+    var idusuario: Int,
 
-    @ColumnInfo(name = "limit")
-    var limit : Double,
+    @ColumnInfo(name = "nombre")
+    var nombre : String,
 
-    @ColumnInfo(name = "idUsername")
-    var idUsername : Int
+    @ColumnInfo(name = "limite")
+    var limite : Double
 )

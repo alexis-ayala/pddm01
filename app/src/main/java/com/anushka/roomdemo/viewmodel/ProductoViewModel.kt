@@ -40,6 +40,9 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
     val inputLimitCategoria = MutableLiveData<String>()
 
     @Bindable
+    val inputTotalCategoria = MutableLiveData<String>()
+
+    @Bindable
     val inputName = MutableLiveData<String>()
 
     @Bindable
@@ -88,6 +91,7 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
             inputName.value=""
             inputObservacion.value=""
             inputPrecio.value=""
+            totalCategoria()
         }
     }
     fun updateCategoria()= viewModelScope.launch {
@@ -131,6 +135,10 @@ class ProductoViewModel(private val repository: ProductoRepository) : ViewModel(
         } else {
             statusMessage.value = Event("Error desconocido")
         }
+    }
+
+    fun totalCategoria(){
+        inputTotalCategoria
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {

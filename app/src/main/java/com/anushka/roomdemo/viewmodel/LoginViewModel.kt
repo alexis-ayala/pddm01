@@ -1,8 +1,6 @@
 package com.anushka.roomdemo.viewmodel
 
 import android.app.Activity
-import android.app.Application
-import android.content.Context
 import android.content.Intent
 import androidx.databinding.Bindable
 import androidx.databinding.Observable
@@ -11,10 +9,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.anushka.roomdemo.Event
+import com.anushka.roomdemo.api.APIService
+import com.anushka.roomdemo.api.RestApiService
+import com.anushka.roomdemo.api.ServiceBuilder
 //import com.anushka.roomdemo.view.SignUpActivity
 import com.anushka.roomdemo.model.Usuario
 import com.anushka.roomdemo.repository.UsuarioRepository
-import com.anushka.roomdemo.sharedPreference
 import com.anushka.roomdemo.view.CategoriaActivity
 import com.anushka.roomdemo.view.LoginActivity
 import com.anushka.roomdemo.view.MainActivity
@@ -65,17 +65,23 @@ class LoginViewModel(private val repository: UsuarioRepository) : ViewModel(), O
     }
 
     fun loginUser(username: String, password: String) = viewModelScope.launch {
-        val login : Usuario? = repository.getUsuario(username,password)
-        if(login!=null){
-            inputUsername.value = null
-            inputPassword.value = null
-            statusMessage.value = Event("Bienvenido.")
-            bnd.value = true
-            loguear(login)
-        }else{
-            bnd.value = false
-            statusMessage.value = Event("Credenciales incorrectas.")
+        val apiService = RestApiService()
+        val userInfo = Usuario(id_usuario = null, name = username, contra = password)
+
+        val login : Unit = apiService.loginUser(userInfo){
+            if(it?.id_usuario != null){
+                inputUsername.value = null
+                inputPassword.value = null
+                statusMessage.value = Event("Bienvenido.")
+                bnd.value = true
+                val loged : Usuario = Usuario(id_usuario = null, name = username, contra = password)
+                loguear(loged)
+            }else{
+                bnd.value = false
+                statusMessage.value = Event("Credenciales incorrectas.")
+            }
         }
+
     }
     fun loguear(usuario: Usuario){
         val myIntent = Intent(activity, CategoriaActivity::class.java)

@@ -20,7 +20,7 @@ interface ProductoDao {
     @Query("DELETE FROM articulo")
     suspend fun deleteAll() : Int
 
-    @Query("UPDATE categoria set =:nomCat where cat_id=:idCategoria")
+    @Query("UPDATE categoria set nombre=:nomCat where cat_id=:idCategoria")
     suspend fun updateAll(idCategoria: Int, nomCat: String) : Int
 
     @Query("DELETE FROM usuario where idusuario=:idUsuario")
